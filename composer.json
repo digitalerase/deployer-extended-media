@@ -1,5 +1,5 @@
 {
-  "name": "sourcebroker/deployer-extended-media",
+  "name": "digitalerase/deployer-extended-media",
   "description": "Deployer tasks to manage media synchronization between application instances.",
   "license": "MIT",
   "keywords": [
