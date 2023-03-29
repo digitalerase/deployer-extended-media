@@ -66,3 +66,12 @@ task('media:push', function () {
         . escapeshellarg($user . $host . ':' . $src)
     );
 })->desc('Synchronize media from local instance to remote instance');
+
+
+// the files uploaded in media:push will get owner digitalera:digitalera. Needs to be www-data:www-data
+after('media:push', 'custom:writable');
+task('custom:writable', function () {
+  run("sudo chown -R www-data:www-data {{deploy_path}}/shared/web/app/uploads"); //www-data owner, www-data group access
+  run("sudo find {{deploy_path}}/shared/web/app/uploads -type d -exec chmod 775 -R {} \;"); //give permissions to folders
+  run("sudo find {{deploy_path}}/shared/web/app/uploads -type f -exec chmod 664 -R {} \;"); //give permissions to files
+})->select('host=staging');
