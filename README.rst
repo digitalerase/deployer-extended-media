@@ -34,22 +34,22 @@ Installation
 1) Install package with composer:
    ::
 
-      composer require sourcebroker/deployer-extended-media
+      composer require digitalerase/deployer-extended-media
 
 2) If you are using deployer as composer package then just put following line in your deploy.php:
    ::
 
-      new \SourceBroker\DeployerLoader\Load([['path' => 'vendor/sourcebroker/deployer-extended-media/deployer']]);
+      new \SourceBroker\DeployerLoader\Load([['path' => 'vendor/digitalerase/deployer-extended-media/deployer']]);
 
 3) If you are using deployer as phar then put following lines in your deploy.php:
    ::
 
-      require_once(__DIR__ . '/vendor/sourcebroker/deployer-loader/autoload.php');
-      new \SourceBroker\DeployerLoader\Load([['path' => 'vendor/sourcebroker/deployer-extended-media/deployer']]);
+      require_once(__DIR__ . '/vendor/digitalerase/deployer-loader/autoload.php');
+      new \SourceBroker\DeployerLoader\Load([['path' => 'vendor/digitalerase/deployer-extended-media/deployer']]);
 
    | IMPORTANT NOTE!
    | Do not put ``require('/vendor/autoload.php')`` inside your deploy.php because you can have dependency problems.
-     Use ``require_once(__DIR__ . '/vendor/sourcebroker/deployer-loader/autoload.php');`` instead as suggested.
+     Use ``require_once(__DIR__ . '/vendor/digitalerase/deployer-loader/autoload.php');`` instead as suggested.
 
 4) In deploy.php set the folders you want to synchronize:
    ::
@@ -218,12 +218,12 @@ Commands are executed on target remote instance. If instances are placed on the 
 local files are called. If instances are placed on different remote servers then ``media:pull [source]`` is executed
 on target instance.
 
-Copy to instance defined in ``instance_live_name`` (default ``live``) is special case.
+Copy to instance defined in ``instance_live_name`` (default ``production``) is special case.
 If you copy to highest instance then by default you will be asked twice if you really want to.
 You can disable asking by setting ``media_allow_copy_live_force`` to ``true``.
 You can also forbid coping to live instance by setting ``media_allow_copy_live`` to ``false``.
 
-Example: ``dep media:copy live --options=target:beta``
+Example: ``dep media:copy production --options=target:staging``
 
 media:link
 ++++++++++
@@ -241,12 +241,12 @@ For each file from source instance that does not exist on target instance:
 
 So each file on target instance may be modified / deleted without effect on source.
 
-Linking to instance defined in ``instance_live_name`` (default ``live``) is special case.
+Linking to instance defined in ``instance_live_name`` (default ``production``) is special case.
 If you link to highest instance then by default you will be asked twice if you really want to.
 You can disable asking by setting ``media_allow_link_live_force`` to ``true``.
 You can also forbid linking to live instance by setting ``media_allow_link_live`` to ``false``.
 
-Example: ``dep media:link live --options=target:beta``
+Example: ``dep media:link production --options=target:staging``
 
 media:pull
 ++++++++++
@@ -257,9 +257,9 @@ Pull media from source instance to current instance using rsync and options from
 
     dep media:pull [source]
 
-Example: ``dep media:pull live``
+Example: ``dep media:pull production``
 
-Pulling to instance defined in ``instance_live_name`` (default ``live``) is special case.
+Pulling to instance defined in ``instance_live_name`` (default ``production``) is special case.
 If you pull to highest instance then by default you will be asked twice if you really want to.
 You can disable asking by setting ``media_allow_pull_live_force`` to ``true``.
 You can also forbid pulling to live instance by setting ``media_allow_pull_live`` to ``false``.
@@ -273,12 +273,12 @@ Pull media from current instance to target instance using rsync and options from
 
     dep media:push [target]
 
-Pushing to instance defined in ``instance_live_name`` (default ``live``) is special case.
+Pushing to instance defined in ``instance_live_name`` (default ``production``) is special case.
 If you push to highest instance then by default you will be asked twice if you really want to.
 You can disable asking by setting ``media_allow_push_live_force`` to ``true``.
 You can also forbid puhsing to live instance by setting ``media_allow_push_live`` to ``false``.
 
-Example: ``dep media:push beta``
+Example: ``dep media:push staging``
 
 
 Changelog
