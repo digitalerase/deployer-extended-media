@@ -284,4 +284,4 @@ Example: ``dep media:push staging``
 Changelog
 ---------
 
-See https://github.com/sourcebroker/deployer-extended-media/blob/master/CHANGELOG.rst
+See https://github.com/digitalerase/deployer-extended-media/blob/master/CHANGELOG.rst
