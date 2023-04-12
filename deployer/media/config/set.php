@@ -10,9 +10,6 @@ set(
     [
         'exclude' => [],
         'exclude-case-insensitive' => [
-            '*.mp4',
-            '*.zip',
-            '*.pdf',
             '*.exe',
             '*.doc',
             '*.docx',
@@ -25,7 +22,6 @@ set(
             '*.tif',
             '*.potx',
             '*.mpg',
-            '*.mp3',
             '*.avi',
             '*.wmv',
             '*.flv',
